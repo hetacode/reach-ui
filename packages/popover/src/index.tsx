@@ -140,6 +140,18 @@ export const positionDefault: Position = (targetRect, popoverRect) => {
   };
 };
 
+export const positionCenter: Position = (targetRect, popoverRect) => {
+  if (!targetRect || !popoverRect) {
+    return {};
+  }
+
+  let halfDiff = (popoverRect.width - targetRect.width) / 2;
+  return {
+    ...positionDefault(targetRect, popoverRect),
+    left: `${targetRect.left - halfDiff}px`,
+  };
+};
+
 export const positionRight: Position = (targetRect, popoverRect) => {
   if (!targetRect || !popoverRect) {
     return {};
